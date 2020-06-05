@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>VASP 第一原理計算簡介</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="icon">
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <!-- <h1 class="text-light"><a href="index.html"><span>NTU</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="../index.html">首頁</a></li>
+          <li class="drop-down"><a href="">課程一覽</a>
+            <ul>
+                <li><a href="./course01.html">MATLAB基礎程式技術</a></li>
+                <li><a href="./course02.html">MATLAB進階程式設計</a></li>
+                <li><a href="./course03.html">MATLAB使用統計與機器學習方法於資料與大數據之分析應用</a></li>
+                <li><a href="./course04.html">量子電腦與量子計算：入門介紹</a></li>
+                <li><a href="./course05.html">YOLOv3 AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course06.html">Mask R-CNN AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course07.html">VASP 第一原理計算簡介</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#teacher">師資陣容</a></li>
+          <li><a href="../index.html#place">上課位置</a></li>
+          <li><a href="../index.html#contact">聯絡資訊</a></li>
+          <li><a href="../registration.html">線上報名</a></li>
+          <li class="drop-down"><a href="">歷年課程</a>
+            <ul>
+              <li><a href="http://course.cc.ntu.edu.tw/201907/index.html">2019課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201807/index.html">2018課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201707/index.html">2017課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201607/index.html">2016課程</a></li>
+            </ul>
+          </li>
+
+          <li class="get-started"><a href="https://www.ntu.edu.tw/">臺大首頁</a></li>
+          <li class="get-started"><a href="http://www.cc.ntu.edu.tw/chinese/index.asp">計中首頁</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">計算機中心</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">臺大2020暑期高效能運算課程</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">VASP 第一原理計算簡介</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#introduction" class="btn-get-started scrollto">基本資訊</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="../assets/img/hero-img1.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="introduction" class="about section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>基本資訊</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th width="10%">日期</th>
+                <td>2020/8/27(四)-2020/8/28(五)</td>
+              </tr>
+              <tr>
+                <th>時間</th>
+                <td>其他</td>
+              </tr>
+              <tr>
+                <th>地點</th>
+                <td>計中 212 教室（電腦教室）</td>
+              </tr>
+              <tr>
+                <th>費用</th>
+                <td>臺灣大學及國立臺灣大學系統 500 元，其他 1000 元，名額XX人</td>
+              </tr>
+              <tr>
+                <th>主辦單位</th>
+                <td>國立臺灣大學計算機及資訊網路中心（臺大計中）</td>
+              </tr>
+              <tr>
+                <th>協辦單位</th>
+                <td>國立臺灣大學 材料系</td>
+              </tr>
+              <tr>
+                <th>對象</th>
+                <td>願意學習Linux基本指令操作及檔案編輯功能。<br>
+                    願意學習基本的叢集系統操作能力。<br>
+                    適合化學、物理、化工、材料等領域的研究人員參與，本課程著重操作使用，不涉及深度理論解說。                    
+                </td>
+              </tr>
+              <tr>
+                <th>備註</th>
+                <td>本課程不供餐，不提供上課證明或證書</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Teacher Section ======= -->
+    <section id="teacher" class="teacher ">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>師資</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 col-md-3 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="../assets/img/teacher/teacher08.png" class="img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-9">
+              <h4>國立臺灣大學 材料科學與工程學系 郭錦龍 副教授</h4>
+            <p>
+                <p><strong>學歷：</strong></p>
+                <ul>
+                    <li>1999/07 - 2004/07 康乃爾大學博士</li>
+                    <li>1994/09 - 1996/07 台灣大學碩士</li>
+                    <li>1990/10 - 1994/07 台灣大學學士</li>
+                </ul>
+                <p><strong>經歷：</strong></p>
+                <ul>
+                    <li>2007/8-2013/8 台灣大學材料系助理教授</li>
+                    <li>2005/1-2006/7 美國德州大學化工系博士後</li>
+                </ul>
+                <p><strong>榮譽獎項:</strong></p>
+                <ul>
+                    <li>104年度臺灣大學教學優良獎</li>
+                    <li>99年度臺灣大學教學傑出獎</li>
+                </ul>
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <a href="../teacher/teacher04.html" class="btn-get-started scrollto">詳細資料</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Teacher Section -->
+
+    <!-- ======= Course Section ======= -->
+    <section id="course" class="course section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程簡介</h2>
+        </div>
+
+        <div class="row course-container" data-aos="fade-up" data-aos-delay="400">
+          <div class="col">
+            <p>近年來隨著電腦科技的進步，材料的研發模式已逐漸從傳統藉由不斷地實驗試誤所累積的經驗準則，發展到利用理論計算與模擬來預測材料的微觀結構與其各項重要性質之間的關聯性，並將其應用於尖端材料的設計與開發研究上。第一原理密度泛函理論計算在目前這類型的研究中扮演著舉足輕重的角色。有別於傳統的半經驗計算方法，第一原理計算是一種只需給定原子的種類和位置而不需要代入任何的實驗或經驗參數，僅根據量子力學的物理定律便可直接計算出各種材料性質的方法。由於第一原理計算預測的準確性已獲得普遍的認可，這類型的計算方法目前已被廣泛應用於材料、物理、以及化學等相關領域的研究上。
+            </p>
+            <p>在眾多的第一原理計算軟體中，由維也納大學所開發的VASP (Vienna Ab Initio Simulation Package) 是一套功能齊全且具有理想的精確度及計算效能而被廣泛地使用的軟體。由於VASP計算中是將波函數以平面波的線性組合展開，並配合布洛赫定理(Bloch’s theorem)與週期性邊界條件，此套軟體特別適合用來進行材料塊材系統的性質預測。VASP軟體提供許多關於材料物理及化學性質計算的功能，如結構優化、電子態密度、能帶結構、磁性、熱力學和機械性質、介電函數、吸收光譜、以及擴散能障等。此短期課程將著重於讓學員藉由實際操作來熟悉 VASP計算中各種輸入檔參數的設定、執行計算的方式、以及其各項基本功能的應用。預期上完本課程之學員將能夠充分了解掌握VASP的基本操作方式，並學會如何從輸出結果進行各項材料基本性質的分析與預測。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Course Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="classcontent" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程內容</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered table-condensed table-responsive-md">
+            <tbody>
+                <tr>
+                    <th scope="col" colspan="2"style="text-align: center">Mask R-CNN AI Objection Detection Step-by-Step hands on practice</th>
+                </tr>
+                <tr>
+                    <th>第一天</th>
+                    <td>
+                        <p><strong>基本Linux系統指令介紹</strong></p>
+                        <p><strong>VASP軟體使用簡介</strong></p>
+                        <p><strong>晶體結構優化</strong></p>
+                        <p><strong>電子結構計算: 態密度、能帶結構、decomposed charge density</strong></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>第二天</th>
+                    <td>
+                        <p><strong>表面結構計算: 表面能、功函數</strong></p>
+                        <p><strong>光學性質計算: 介電函數、吸收光譜、反射光譜</strong></p>
+                        <p><strong>機械性質計算: bulk modulus、shear modulus、Young’s modulus</strong></p>
+                        <p><strong>分子動力學模擬</strong></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="row justify-content-center">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#introduction" class="btn-get-started scrollto">立即報名</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>NTUCC</strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

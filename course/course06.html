@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Mask R-CNN AI物件偵測Step-by-Step上機實作</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="icon">
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <!-- <h1 class="text-light"><a href="index.html"><span>NTU</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="../index.html">首頁</a></li>
+          <li class="drop-down"><a href="">課程一覽</a>
+            <ul>
+                <li><a href="./course01.html">MATLAB基礎程式技術</a></li>
+                <li><a href="./course02.html">MATLAB進階程式設計</a></li>
+                <li><a href="./course03.html">MATLAB使用統計與機器學習方法於資料與大數據之分析應用</a></li>
+                <li><a href="./course04.html">量子電腦與量子計算：入門介紹</a></li>
+                <li><a href="./course05.html">YOLOv3 AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course06.html">Mask R-CNN AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course07.html">VASP 第一原理計算簡介</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#teacher">師資陣容</a></li>
+          <li><a href="../index.html#place">上課位置</a></li>
+          <li><a href="../index.html#contact">聯絡資訊</a></li>
+          <li><a href="../registration.html">線上報名</a></li>
+          <li class="drop-down"><a href="">歷年課程</a>
+            <ul>
+              <li><a href="http://course.cc.ntu.edu.tw/201907/index.html">2019課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201807/index.html">2018課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201707/index.html">2017課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201607/index.html">2016課程</a></li>
+            </ul>
+          </li>
+
+          <li class="get-started"><a href="https://www.ntu.edu.tw/">臺大首頁</a></li>
+          <li class="get-started"><a href="http://www.cc.ntu.edu.tw/chinese/index.asp">計中首頁</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">計算機中心</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">臺大2020暑期高效能運算課程</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">Mask R-CNN AI物件偵測Step-by-Step上機實作</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#introduction" class="btn-get-started scrollto">基本資訊</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="../assets/img/hero-img1.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="introduction" class="about section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>基本資訊</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th width="10%">日期</th>
+                <td>2020/9/3(四)-2020/9/4(五)</td>
+              </tr>
+              <tr>
+                <th>時間</th>
+                <td>■09:10~12:00  ■13:20~16:10 </td>
+              </tr>
+              <tr>
+                <th>地點</th>
+                <td>計中 212 教室（電腦教室）</td>
+              </tr>
+              <tr>
+                <th>費用</th>
+                <td>臺灣大學及國立臺灣大學系統 500 元，其他 1000 元，名額XX人</td>
+              </tr>
+              <tr>
+                <th>主辦單位</th>
+                <td>國立臺灣大學計算機及資訊網路中心（臺大計中）</td>
+              </tr>
+              <tr>
+                <th>協辦單位</th>
+                <td>兌全有限公司</td>
+              </tr>
+              <tr>
+                <th>對象</th>
+                <td>具備基本程式語言設計基礎，未來想從事人工智慧開發工程師、高階軟體開發工程師、電子/電機相關工程師、測試/量測工程師、醫學界研發人員、生物科技研究人員，以及統計/數值分析人員等。                    
+                </td>
+              </tr>
+              <tr>
+                <th>備註</th>
+                <td>本課程不供餐，不提供上課證明或證書</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Teacher Section ======= -->
+    <section id="teacher" class="teacher ">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>師資</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 col-md-3 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="../assets/img/teacher/teacher04.gif" class="img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-9">
+              <h4>兌全有限公司 鄭羽熙 博士</h4>
+            <p>兌全有限公司 總經理<br>
+                學歷：國立台灣大學 電機系博士 (1992)<br>
+                經歷：<br>
+                中山科學研究院簡聘技正<br>
+                德碩半導體股份有限公司晶片設計經理<br>
+                麗臺科技股份有限公司副總工程師<br>
+                專長：<br>
+                Deep learning and Artificial intelligence application<br>
+                Multi-core parallel processing and GPU massive processing<br>
+                Video codec and algorithm<br>
+                Embedded SOC system<br>
+                FPGA and Chip design<br>
+                ECG and HRV application</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <a href="../teacher/teacher04.html" class="btn-get-started scrollto">詳細資料</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Teacher Section -->
+
+    <!-- ======= Course Section ======= -->
+    <section id="course" class="course section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程簡介</h2>
+        </div>
+
+        <div class="row course-container" data-aos="fade-up" data-aos-delay="400">
+          <div class="col">
+            <p>多物件識別與偵測 (multiple object classification and detection) 的目的是在影像中找到目標物件，將物件以方形框 (Bounding Box) 標註起來以便做進一步的場景或意圖分析。如果想要在圖中取得更多的資訊，就必須再進一步取得物件的外型及姿態，也就是必須加入物件切割 (Segmentation) 方法，將物件與背景分離。Mask R-CNN (Region-based Convolutional Neural Networks) 的方法就整合了物件偵測與含意切割 (Semantic Segmentation ) 等技術，成功的一同完成物件偵測及其外型切割等工作。因其優異的演算整合及偵測效果，目前已經廣泛的被應用於人工智慧機器視覺等相關領域；然而由於其演算方法中使用了廣泛的影像處理技術，提高了許多理解的門檻，因此本課程除了詳細解說其演算法的精神之外，同時提供實作環境，讓學員能夠親自實作一簡單的計畫，以便能夠確實的將此工具應用於日後的研究領域上。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Course Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="classcontent" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程內容</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered table-condensed table-responsive-md">
+            <tbody>
+                <tr>
+                    <th scope="col" style="text-align: center">Mask R-CNN AI Objection Detection Step-by-Step hands on practice</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>R-CNN 與 Fast R-CNN 類神經網路介紹</strong></p>
+                        <p><strong>Faster R-CNN 演算法架構介紹</strong></p>
+                        <p><strong>Semantic Segmentation 方法介紹</strong></p>
+                        <p><strong>Mask R-CNN 演算法架構介紹</strong></p>
+                        <p><strong>Mask R-CNN 優點說明</strong></p>
+                        <p><strong>Mask R-CNN 物件偵測實作計畫說明</strong></p>
+                        <p><strong>影像資料收集及標註</strong></p>
+                        <p><strong>Mask R-CNN 程式使用方法說明</strong></p>
+                        <p><strong>Mask R-CNN 模型訓練</strong></p>
+                        <p><strong>模型訓練準度評估</strong></p>
+                        <p><strong>Mask R-CNN 模型預估</strong></p>
+                        <p><strong>Mask R-CNN 物件偵測實作檢驗</strong></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="row justify-content-center">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#introduction" class="btn-get-started scrollto">立即報名</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>NTUCC</strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

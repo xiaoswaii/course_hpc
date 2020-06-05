@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>MATLAB使用統計與機器學習方法於資料與大數據之分析應用</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="icon">
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <!-- <h1 class="text-light"><a href="index.html"><span>NTU</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="../index.html">首頁</a></li>
+          <li class="drop-down"><a href="">課程一覽</a>
+            <ul>
+                <li><a href="./course01.html">MATLAB基礎程式技術</a></li>
+                <li><a href="./course02.html">MATLAB進階程式設計</a></li>
+                <li><a href="./course03.html">MATLAB使用統計與機器學習方法於資料與大數據之分析應用</a></li>
+                <li><a href="./course04.html">量子電腦與量子計算：入門介紹</a></li>
+                <li><a href="./course05.html">YOLOv3 AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course06.html">Mask R-CNN AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course07.html">VASP 第一原理計算簡介</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#teacher">師資陣容</a></li>
+          <li><a href="../index.html#place">上課位置</a></li>
+          <li><a href="../index.html#contact">聯絡資訊</a></li>
+          <li><a href="../registration.html">線上報名</a></li>
+          <li class="drop-down"><a href="">歷年課程</a>
+            <ul>
+              <li><a href="http://course.cc.ntu.edu.tw/201907/index.html">2019課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201807/index.html">2018課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201707/index.html">2017課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201607/index.html">2016課程</a></li>
+            </ul>
+          </li>
+
+          <li class="get-started"><a href="https://www.ntu.edu.tw/">臺大首頁</a></li>
+          <li class="get-started"><a href="http://www.cc.ntu.edu.tw/chinese/index.asp">計中首頁</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">計算機中心</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">臺大2020暑期高效能運算課程</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">MATLAB使用統計與機器學習方法於資料與大數據之分析應用</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#introduction" class="btn-get-started scrollto">基本資訊</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="../assets/img/hero-img1.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="introduction" class="about section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>基本資訊</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th width="10%">日期</th>
+                <td>2020/7/23(四)</td>
+              </tr>
+              <tr>
+                <th>時間</th>
+                <td>■09:10~12:00  ■13:20~16:10 </td>
+              </tr>
+              <tr>
+                <th>地點</th>
+                <td>計中 212 教室（電腦教室）</td>
+              </tr>
+              <tr>
+                <th>費用</th>
+                <td>臺灣大學及國立臺灣大學系統 500 元，其他 1000 元，名額40人</td>
+              </tr>
+              <tr>
+                <th>主辦單位</th>
+                <td>國立臺灣大學計算機及資訊網路中心（臺大計中）</td>
+              </tr>
+              <tr>
+                <th>協辦單位</th>
+                <td>鈦思科技股份有限公司</td>
+              </tr>
+              <tr>
+                <th>對象</th>
+                <td>具備基本 MATLAB programming知識，未來想從事系統開發工程師、財務分析工程師、電子/電機相關工程師、測試/量測工程師、醫學界研發人員、生物科技研究人員，以及統計/數值分析人員等。
+                </td>
+              </tr>
+              <tr>
+                <th>備註</th>
+                <td>本課程不供餐，不提供上課證明或證書</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Teacher Section ======= -->
+    <section id="teacher" class="teacher ">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>師資</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 col-md-3 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="http://course.cc.ntu.edu.tw/201707/index_files/teacher09.jpg" class="img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-9">
+            <h4>鈦思科技 莊賀鈞 Claire 應用工程師</h4>
+            <p>鈦思科技應用工程師 ，主修人工智慧，熟悉基因演算法、類神經網路、Fuzzy 專家系統等領域。目前負責 MATLAB於平行運算， 機器學習，影像處理，以及財金領域之應用、MATLAB專任講師及 MATLAB與其他語言整合之技術支援。</p>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <a href="../teacher/teacher03.html" class="btn-get-started scrollto">詳細資料</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Teacher Section -->
+
+    <!-- ======= Course Section ======= -->
+    <section id="course" class="course section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程簡介</h2>
+        </div>
+
+        <div class="row course-container" data-aos="fade-up" data-aos-delay="400">
+          <div class="col">
+            <p>資料分析將大量且複雜資料轉換為有效用的資訊以提升決策方針，並有效地將分析結果整合至企業內部商業系統中，此將面臨許多挑戰，本課程會說明如何利用MATLAB處理這些難題。課程前半部將以普通的資料量等級來進行統計與機器學習分析，後半部以大數據為例: 包含如何有效率的使用記憶體、資料前處理與機器學習分析大數據。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Course Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="classcontent" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程內容</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered table-condensed table-responsive-md">
+            <tbody>
+                <tr>
+                    <th scope="col" style="text-align: center">（Big）Data Analytics With MATLAB</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>Access data from files and Excel spreadsheets</strong></p>
+                        <p><strong>Data types</strong></p>
+                        <ul>
+                            <li>Data types</li>
+                            <li>Table</li>
+                        </ul>
+                        <p><strong>Data pre-processing</strong></p>
+                        <ul>
+                            <li>Dealing with missing value</li>
+                            <li>Locating data</li>
+                        </ul>
+                        <p><strong>Basic data analysis</strong></p>
+                        <ul>
+                            <li>Descriptive statistics</li>
+                            <li>Split-apply workflow</li>
+                        </ul>
+                        <p><strong>Fit data to models</strong></p>
+                        <ul>
+                            <li>Curve fitting toolbox</li>
+                            <li>Statistics models</li>
+                            <li>Machine learning analysis : classification learner</li>
+                        </ul>
+                        <p><strong>Publish your code</strong></p>
+                        <p><strong>Big data with MATLAB</strong></p>
+                        <ul>
+                            <li>Access Big Data</li>
+                            <li>Tall arrays</li>
+                            <li>Machine learning analysis</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="row justify-content-center">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#introduction" class="btn-get-started scrollto">立即報名</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>NTUCC</strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

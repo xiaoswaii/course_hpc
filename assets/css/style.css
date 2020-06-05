@@ -716,11 +716,25 @@ section {
   border-radius: 5px;
   background: #fff;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .teacher .member .member-img {
   position: relative;
   overflow: hidden;
+  flex: 1;
+}
+
+.teacher .member-none-shadow {
+  box-shadow: none;
+}
+
+.teacher .member-shadow {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.teacher .member .member-img img{
+  height: 250px;
 }
 
 .teacher .member .member-info {
@@ -746,6 +760,28 @@ section {
   font-size: 14px;
   line-height: 26px;
   color: #777777;
+}
+
+#teacher .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #3498db;
+  border: 2px solid #3498db;
+}
+
+#teacher .btn-get-started:hover {
+  background: #3498db;
+  color: #fff;
+}
+
+#teacher .col-lg-3 a {
+  width: 100%;
 }
 
 /* Contact */
@@ -845,4 +881,19 @@ section {
 
 #footer .footer-links a:hover {
   color: #3498db;
+}
+
+.RegContent {
+  border: 2px dashed #cfcfcf;
+  background-color: #f8f8f8;
+  padding: 15px;
+}
+
+.num_symbol {
+  width: 50px;
+  margin-bottom: 15px;
+}
+
+.reg {
+  margin-top: 30px
 }

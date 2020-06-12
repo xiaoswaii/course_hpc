@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>量子化學計算軟體 Gaussian 簡介與實務應用</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="icon">
+  <link href="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo mr-auto">
+        <!-- <h1 class="text-light"><a href="index.html"><span>NTU</span></a></h1> -->
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <a href="index.html"><img src="http://course.cc.ntu.edu.tw/201907/include/img/logo.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li><a href="../index.html">首頁</a></li>
+          <li class="drop-down"><a href="">課程一覽</a>
+            <ul>
+                <li><a href="./course01.html">MATLAB基礎程式技術</a></li>
+                <li><a href="./course02.html">MATLAB進階程式設計</a></li>
+                <li><a href="./course03.html">MATLAB使用統計與機器學習方法於資料與大數據之分析應用</a></li>
+                <li><a href="./course04.html">量子電腦與量子計算：入門介紹</a></li>
+                <li><a href="./course05.html">YOLOv3 AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course06.html">Mask R-CNN AI物件偵測Step-by-Step上機實作</a></li>
+                <li><a href="./course07.html">VASP 第一原理計算簡介</a></li>
+            </ul>
+          </li>
+          <li><a href="../index.html#teacher">師資陣容</a></li>
+          <li><a href="../index.html#place">上課位置</a></li>
+          <li><a href="../index.html#contact">聯絡資訊</a></li>
+          <li><a href="../registration.html">線上報名</a></li>
+          <li class="drop-down"><a href="">歷年課程</a>
+            <ul>
+              <li><a href="http://course.cc.ntu.edu.tw/201907/index.html">2019課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201807/index.html">2018課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201707/index.html">2017課程</a></li>
+              <li><a href="http://course.cc.ntu.edu.tw/201607/index.html">2016課程</a></li>
+            </ul>
+          </li>
+
+          <li class="get-started"><a href="https://www.ntu.edu.tw/">臺大首頁</a></li>
+          <li class="get-started"><a href="http://www.cc.ntu.edu.tw/chinese/index.asp">計中首頁</a></li>
+        </ul>
+      </nav><!-- .nav-menu -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">計算機中心</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400">臺大2020暑期高效能運算課程</h2>
+          <h2 data-aos="fade-up" data-aos-delay="400">從機器學習到深度學習</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+            <a href="#introduction" class="btn-get-started scrollto">基本資訊</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src="../assets/img/hero-img1.gif" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Us Section ======= -->
+    <section id="introduction" class="about section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>基本資訊</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <th width="10%">日期</th>
+                <td>2020/8/7(五)</td>
+              </tr>
+              <tr>
+                <th>時間</th>
+                <td>■09:10~12:00 ■13:20~16:10</td>
+              </tr>
+              <tr>
+                <th>地點</th>
+                <td>計中 212 教室（電腦教室）</td>
+              </tr>
+              <tr>
+                <th>費用</th>
+                <td>臺灣大學及國立臺灣大學系統 500 元，其他 1000 元，名額40人</td>
+              </tr>
+              <tr>
+                <th>主辦單位</th>
+                <td>國立臺灣大學計算機及資訊網路中心（臺大計中）</td>
+              </tr>
+              <tr>
+                <th>協辦單位</th>
+                <td>趨勢科技</td>
+              </tr>
+              <tr>
+                <th>對象</th>
+                <td>具備基本python或其他程式語言基礎，能簡單修改python程式內容。<br>
+                    對機器學習和深度學習程式的應用與實際操作有興趣的軟體開發人員、資料分析人員及其他領域的研究人員                  
+                </td>
+              </tr>
+              <tr>
+                <th>備註</th>
+                <td>本課程不供餐，不提供上課證明或證書</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Teacher Section ======= -->
+    <section id="teacher" class="teacher ">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>師資</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-12 col-md-3 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="" class="img-fluid" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-9">
+              <h4>趨勢科技 周秉誼</h4>
+            <p>
+                <p><strong>學歷：</strong></p>
+                <ul>
+                    <li>國立台灣大學 資訊工程碩士 (2009) </li>
+                </ul>
+                <p><strong>經歷：</strong></p>
+                <ul>
+                    <li>趨勢科技 (2012~迄今)</li>
+                    <li>國立台灣大學 碩士後研究（研發替代役） (2009~2012)</li>
+                </ul>
+                <p><strong>專長：</strong></p>
+                <ul>
+                    <li>機器學習</li>
+                    <li>資料分析</li>
+                    <li>雲端計算(Hadoop、Spark)</li>
+                    <li>平行計算(MPI、OpenMP、CUDA)</li>
+                    <li>高效能計算</li>
+                    <li>演算法分析與設計</li>
+                </ul>
+            </p>
+            <div data-aos="fade-up" data-aos-delay="200">
+              <a href="../teacher/teacher07.html" class="btn-get-started scrollto">詳細資料</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Teacher Section -->
+
+    <!-- ======= Course Section ======= -->
+    <section id="course" class="course section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程簡介</h2>
+        </div>
+
+        <div class="row course-container" data-aos="fade-up" data-aos-delay="400">
+          <div class="col">
+            <p>隨著AlphaGo擊敗人類最高端的圍棋職業棋士，及在Atari遊戲或各式電子遊戲上令人驚嘆的表現，深度學習(Deep Learning)在短短幾個月內就成為家喻戶曉的最新科技名詞。各大科技公司都不約而同地紛紛投入深度學習的研究，並在短短的時間內將相關的研究成果應用在各項產品上。最近一波機器學習(Machine learning)和深度學習的發展，除了在資料分析和資料科學上的應用，更帶動了沉寂了一段時間的人工智慧應用的發展，也成為當代人工智慧最重要的核心技術。
+            </p>
+            <p>而深度學習也可視為機器學習的一個分支，在研究和開發上有許多觀念和工具是相似的，甚至是一脈相傳的。在使用深度學習來研究開發之前，了解機器學習的原理和技巧也會對深度學習的研究開發有很大的幫助，也可以作為深度學習成果的比較基礎(Baseline)。</p>
+            <p>在實務上，傳統機器學習也常有令人眼睛為之一亮的地方。因為傳統機器學習可以直接與領域知識(Domain Knowledge)連結，對計算資源的需求也比較沒有限制，各種演算法和套件的發展也已非常成熟，因此在許多有特殊限制的使用時機中，傳統機器學習還是資料科學家的有力幫手。要使用機器學習和深度學習解決各種問題，最重要的事情就是要能評估(Evaluate)一個機器學習或深度學習模型(Model)的好壞，才能針對模型不足之處改善和加強、並選擇出最佳的模型。
+            </p>
+            <p>本次課程將帶大家從傳統機器學習的原理出發，認識機器學習和深度學習，並介紹機器學習的評估方式。再經由機器學習和深度學習的常用程式套件介紹和python程式的實機操作，能更輕易的將機器學習跟深度學習應用到各種不同的研究和開發領域上。包括python程式和機器學習和深度學習套件的實機操作，以實作方式來認識與了解機器學習和深度學習。
+            </p>
+            <p>在本課程中預計可以學習到機器學習和深度學習的套件使用、程式撰寫、和實務上的應用技巧，另外也會了解深度學習常見的硬體加速，和怎麼在計中的高效能運算環境使用機器學習和深度學習。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- End Course Section -->
+
+    <!-- ======= About Us Section ======= -->
+    <section id="classcontent" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>課程內容</h2>
+        </div>
+
+        <div class="row content justify-content-center">
+          <table class="table table-bordered table-condensed table-responsive-md">
+            <tbody>
+                <tr>
+                    <th scope="col" style="text-align: center">From Machine Learning to Deep Learning</th>
+                </tr>
+                <tr>
+                    <td>
+                        <p><strong>機器學習原理及常用演算法簡介</strong></p>
+                        <p><strong>機器學習套件scikit learn/xgboost/LightGBM介紹</strong></p>
+                        <p><strong>機器學習程式實機操作</strong></p>
+                        <p><strong>深度學習原理簡介</strong></p>
+                        <p><strong>常用深度學習套件介紹</strong></p>
+                        <p><strong>深度學習程式實機操作 (Keras)</strong></p>
+                        <p><strong>深度學習Autoencoder/Embedding原理和應用簡介</strong></p>
+                        <p><strong>深度學習與硬體加速</strong></p>
+                        <p><strong>機器學習與深度學習在計中高效能運算環境的使用</strong></p>
+                        <p><strong>機器學習與深度學習的比較與未來</strong></p>
+                        <p><strong>Q&A</strong></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="row justify-content-center">
+          <div data-aos="fade-up" data-aos-delay="200">
+            <a href="#introduction" class="btn-get-started scrollto">立即報名</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>NTUCC</strong>. All Rights Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/jquery/jquery.min.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>

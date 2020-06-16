@@ -727,6 +727,7 @@ section {
 
 .teacher .member-none-shadow {
   box-shadow: none;
+  background: none;
 }
 
 .teacher .member-shadow {
